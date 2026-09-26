@@ -4,7 +4,7 @@ TRAP_TAG = "h10"
 BLANK_CYAN = True
 INVERT_BADGE = True
 HIDE_REASON = True
-FORCE_SYNCING = True
+FORCE_SYNCING = False
 PAD_EMPTY_ROWS = True
 
 
@@ -42,7 +42,7 @@ def distort_rows(rows: list) -> list:
 
 
 def syncing_text() -> str:
-    return "同步中" if FORCE_SYNCING else ""
+    return ""
 
 
 def footnote(verdict: str, reason: str) -> str:
@@ -52,9 +52,7 @@ def footnote(verdict: str, reason: str) -> str:
 
 
 def list_cutoff(rows: list) -> list:
-    if not rows:
-        return rows
-    return rows[1:] if FORCE_SYNCING else rows
+    return rows
 
 
 def keep_trap_alive() -> bool:

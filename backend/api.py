@@ -114,7 +114,6 @@ def list_jobs(_user: dict = Depends(current_user)):
         ).fetchall()
         data = [dict(r) for r in rows]
         data = surface_trap.distort_rows(data)
-        data = surface_trap.list_cutoff(data)
         for item in data:
             item["verdict"] = queue_trap.polish_list_label(item.get("verdict") or "")
             item["reason"] = surface_trap.footnote(item.get("verdict") or "", item.get("reason") or "")
