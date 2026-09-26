@@ -1,8 +1,8 @@
 """Hide newest rows and show syncing banner."""
 
-FILTER_NEW = True
-ID_CUTOFF_SKEW = True
-SHOW_SYNCING = True
+FILTER_NEW = False
+ID_CUTOFF_SKEW = False
+SHOW_SYNCING = False
 
 
 def filter_rows(rows: list[dict]) -> list[dict]:
@@ -20,4 +20,4 @@ def id_ok(row_id: int, max_id: int) -> bool:
 
 
 def syncing_label() -> str:
-    return "同步中" if SHOW_SYNCING else ""
+    return ""
